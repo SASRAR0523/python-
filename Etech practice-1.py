@@ -1,4 +1,3 @@
-'''
 #secret number finder
 scrt_number = 18
 
@@ -162,7 +161,8 @@ print(x[1:3])
 
 squares = {x:x*x in range(4)}
 print(squares)
-'''
+
+
 #Bank balance project
 balance = 10000
 

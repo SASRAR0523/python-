@@ -198,4 +198,157 @@ while True:
     else:
         print("Invalid choice! Please enter 1, 2, 3, or 4.")
 
+#Factorials using for loop
+
+n = int(input("Enter a number : "))
+
+fact = 1
+
+for i in range(1,n+1):
+    fact = fact*i
+
+print("Factorial :",fact)
+
+#count the words in the text
+
+text = input("Enter a string : ")
+
+count = 0
+for ch in text:
+    count += 1
+
+print("no.of words : ",count)
+
+#count the vowels in the text
+
+s = input("enter text : ")
+
+vowels = 0
+
+for ch in s:
+    if ch.lower() in "aeiou":
+        vowels += 1
+
+print("vowels: ",vowels)
+
+#inheritance concept
+
+class animal:
+    def sound(self):
+        print("animal sound")
+
+class Dog(animal):
+    def sound(self):
+        print("Bark")
+
+class Cat(animal):
+    def sound(self):
+        print("meow")
+
+d = Dog()
+c = Cat()
+
+d.sound()
+c.sound()
+
+#2.
+
+class Dog:
+    def sound(self):
+        print("dog barks")
+
+class Cat:
+    def sound(self):
+        print("cat meow's")
+
+def make_sound(animal):
+    animal.sound()
+
+make_sound(Dog())
+make_sound(Cat())
+
+#3.
+class cal:
+    def mul(self,a,b):
+        return a*b
+    def add(self,a,b,c):
+        return a+b+c
+    def div(self,c,d):
+        return c/d
+    def sub(self,x,y):
+        return x-y
+    def asrar(self,m,n):
+        return m//n
+
+obj = cal()
+print(obj.mul(20,30))
+print(obj.add(10,20,30))
+print(obj.div(10,2))
+print(obj.sub(10,10)
+print(obj.asrar(25,5))
+
+
+#Abstraction in oops
+from abc import ABC, abstractmethod
+
+class shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class rectangle(shape):
+    def __init__(self,l,b):
+        self.l = l
+        self.b = b
+
+    def area(self):
+        print(self.l*self.b)
+
+r = rectangle(10, 90)
+
+r.area()
+
+#Mathematical operations
+
+import math
+
+print(math.sqrt(25))
+print(math.ceil(25.5))
+print(math.floor(25.5))
+print(math.pi)
+
+#os keywords
+
+import os
+
+print(os.getcwd)
+print(os.listdir)
+print(os.mkdir('new folder'))
+
+#Date & time operations
+
+#print the today's date
+from datetime import datetime,date,timedelta
+now = datetime.now()
+
+#print the today's date
+print(now.year, now.month,now.day)
+print(now.strftime('%H : %M :%S'))
+
+today = date.today()
+print(today)
+
+#print the tomorrow date
+tomorrow = today + timedelta(days = 1)
+print(tomorrow)
+
+#to find the difference between days
+diff = datetime(2026,1,1) - datetime.now()
+print(diff)
+
+
+
+
+
+
 

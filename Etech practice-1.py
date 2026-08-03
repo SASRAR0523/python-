@@ -346,7 +346,174 @@ print(tomorrow)
 diff = datetime(2026,1,1) - datetime.now()
 print(diff)
 
+#1.Write a Python program that divides two numbers entered by the user, using 
+#exception handling to catch division by zero and invalid (non-numeric) input.  
 
+try:
+    num1 = float(input("Enter first value : "))
+    num2 = float(input("Enter second value : "))
+
+    result = num1/num2
+    print("Result : ",result)
+
+
+except ZeroDivisionError :
+    print("Error : Divided by zero is not allowed...!")
+
+except ValueError :
+    print("Error : please enter valid numeric values")
+
+finally:
+    print("Note : program successfully closed!")
+
+#2.  Write a Python program to create a class Employee with attributes name and 
+#salary, and a method to display employee details. Create two objects and print 
+#their details.
+
+class Asrar:
+    def __init__(self,name,age,salary):
+        self.name = name
+        self.age = age
+        self.salary = salary
+
+    def display(self):
+        print(self.name)
+        print(self.age)
+        print(self.salary)
+        print()
+
+n1=input("enter the name of the student:")
+n2=int(input("enter age:"))
+n3=int(input("enter the salary:"))
+
+p1=input("enter the name of the student:")
+p2=int(input("enter age:"))
+p3=int(input("enter the salary:"))
+
+a1 = Asrar(n1,n2,n3)
+a2 = Asrar(p1,p2,p3)
+
+print("employee one details :")
+a1.display()
+print("employee two details :")
+a2.display()
+
+ #3.Write a Python program to implement inheritance where a class Shape has a 
+#method area(), and subclasses Rectangle and Circle override it to calculate their 
+#respective areas.  
+
+import math
+
+class Area:
+    def area(self):
+        print("Area of shape")
+
+class Rectangle(Area):
+    def __init__(self,length,breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def area(self):
+        print("Area of Rectangle = ",self.length * self.breadth)
+
+class circle(Area):
+    def __init__(self,radius):
+        self.radius = radius
+
+    def area(self):
+        print("Area of circle = ",math.pi * self.radius * self.radius)   
+
+r1 = Rectangle(10,20)
+c1 = circle(50)
+
+r1.area()
+c1.area()
+
+# 4. Write a Python program to demonstrate polymorphism by creating a function describe(animal) 
+# that calls a speak() method, which behaves differently for Dog and Cat class objects.
+
+class Dog:
+    def speak(self):
+        return "Barks...!"
+
+class Cat:
+    def speak(self):
+        return "Meows...!"
+
+def describe(animal):
+    print(animal.speak())
+
+dog = Dog()
+cat = Cat()
+
+describe(dog)
+describe(cat)
+
+# 5.Write a Python program to demonstrate encapsulation by creating a class 
+# BankAccount with a private balance attribute, along with getter and setter 
+# methods to access and update it safely.  
+
+
+
+#project using simple python
+# Calculator App Project
+
+def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    return a / b
+
+def modulus(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    return a % b
+
+def power(a, b):
+    return a ** b
+
+while True:
+    print("\n1. ADDITION")
+    print("2. SUBTRACTION")
+    print("3. MULTIPLICATION")
+    print("4. DIVISION")
+    print("5. MODULUS")
+    print("6. POWER")
+    print("7. EXIT")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 7:
+        print("Calculator Closed")
+        break
+
+    if choice < 1 or choice > 7:
+        print("Invalid Choice")
+        continue
+
+    value1 = float(input("Enter first value: "))
+    value2 = float(input("Enter second value: "))
+
+    if choice == 1:
+        print("Result:", add(value1, value2))
+    elif choice == 2:
+        print("Result:", sub(value1, value2))
+    elif choice == 3:
+        print("Result:", multiply(value1, value2))
+    elif choice == 4:
+        print("Result:", divide(value1, value2))
+    elif choice == 5:
+        print("Result:", modulus(value1, value2))
+    elif choice == 6:
+        print("Result:", power(value1, value2))
 
 
 

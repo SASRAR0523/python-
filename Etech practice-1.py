@@ -676,6 +676,61 @@ while True:
     else:
         print("Invalid Choice")
 
+#prime number
+
+n = int(input())
+
+if n <= 0:
+    print(“Not prime”)
+else:
+    prime = True
+
+for i in range(2,n):
+    if n%i == 0:
+        prime = False
+	  break
+
+if prime:
+    print(“prime”)
+else:
+    print(“Not prime”)
+
+
+#reverse the number
+
+n = int(input())
+
+reverse = 0
+
+while n>0:
+    digit = n%10
+    reverse = reverse * 10 + digit
+    n = n//10
+
+print(reverse)
+
+#palindrome number
+
+n = int(input())
+
+original = n
+
+reverse = 0
+
+while n>0:
+    digit = n%10
+    reverse = reverse * 10 + digit
+    n = n//10
+
+if original == reverse:
+    print(“palindrome”)
+else:
+    print(“Not palindrome”)
+
+
+
+
+
 
 
 

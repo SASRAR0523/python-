@@ -727,6 +727,126 @@ if original == reverse:
 else:
     print(“Not palindrome”)
 
+#Input Format
+#The input is a single integer N, representing the value of the item code.
+
+#Output Format
+#Print the product of all the digits of the number N.
+
+n = int(input())
+
+product = 1
+
+if n == 0:
+    product = 0
+else:
+    while n > 0:
+        digit = n % 10
+        product *= digit
+        n //= 10
+
+print(product)
+
+#Input Format
+#The input is a single integer n.
+
+#Output Format
+#Print the sum of all even digits in the number.
+
+n = int(input())
+
+sum = 0
+
+while n > 0:
+    digit = n % 10
+
+    if digit % 2 == 0:
+        sum += digit
+
+    n = n//10
+print(sum)
+
+#Input Format
+#The input consists of two integers: N (positive integer) and R (non-negative integer).
+
+#Output Format
+#Print the single-digit result obtained after R iterations of summing the digits of N.
+
+n = int(input())
+r = int(input())
+
+if r == 0:
+    print(0)
+else:
+    for i in range(r):
+        sum = 0
+
+        while n > 0:
+            digit = n % 10
+            sum = sum + digit
+            n = n // 10
+
+        n = sum
+
+    print(n)
+
+#Given two integers, dividend and divisor, find the remainder when dividend is divided by divisor without using the / or % operators.
+
+#Input Format
+#The input consists of two integers: dividend and divisor.
+
+#Output Format
+#Print the remainder when dividend is divided by divisor.
+
+dividend , divisor = map(int,input().split())
+
+while dividend >= divisor:
+    dividend = dividend - divisor
+
+print(dividend)
+
+#Input Format
+#First line contains an integer n, representing size of an array.
+
+#Second line contains n space separated integer values.
+
+#Output Format
+#The output is the array with all zeros moved to the end, while maintaining the order of non-zero elements.
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+result = []
+
+for x in arr:
+    if x != 0:
+        result.append(x)
+
+while len(result) < n:
+    result.append(0)
+
+print(*result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

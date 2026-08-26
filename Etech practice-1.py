@@ -828,6 +828,34 @@ while len(result) < n:
 print(*result)
 
 
+s = input()
+
+# Split the string into words
+words = s.split()
+
+# Count the words
+count = len(words)
+
+# Output result
+print(count)
+
+
+# Input string
+s = input()
+
+# Find length of string
+length = len(s)
+
+# Output result
+print(length)
+
+
+s = input()
+
+# Print each character in a new line
+for ch in s:
+    print(ch)
+
 
 
 

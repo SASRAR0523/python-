@@ -827,34 +827,125 @@ while len(result) < n:
 
 print(*result)
 
+#Print all prime numbers between n1 and n2.
+
+n1, n2 = map(int, input().split())
+
+for n in range(n1, n2 + 1):
+    if n < 2:
+        continue
+
+    prime = True
+
+    for i in range(2, n):
+        if n % i == 0:
+            prime = False
+            break
+
+    if prime:
+        print(n, end=" ")
+
+#Given an unsorted array of integers, find the length of the longest increasing subsequence.
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+lis = []
+
+for num in arr:
+    if not lis or num > lis[-1]:
+        lis.append(num)
+    else:
+        for i in range(len(lis)):
+            if lis[i] >= num:
+                lis[i] = num
+                break
+
+print(len(lis))
+
+# You are given an array/list `ARR` consisting of `N` integers. 
+# Your task is to find the majority element in the array. 
+# If there is no majority element, print `-1`. 
+# A majority element is an element that appears more than `floor(N / 2)` times in the array.
+
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+
+    majority = -1
+
+    for num in arr:
+        if arr.count(num) > n // 2:
+            majority = num
+            break
+
+print(majority)
+
+# You are given two strings S and T with lengths M and N.
+# Your task is to find the length of the 'Longest Common Subsequence' (LCS) between the two strings. 
+# subsequence of a string is a sequence containing characters in the same relative order as in the string, 
+# but not necessarily contiguous. The LCS is the longest subsequence that appears in both strings.
 
 s = input()
+t = input()
 
-# Split the string into words
-words = s.split()
+m = len(s)
+n = len(t)
 
-# Count the words
-count = len(words)
+dp = [[0] * (n + 1) for _ in range(m + 1)]
 
-# Output result
-print(count)
+for i in range(1, m + 1):
+    for j in range(1, n + 1):
+        if s[i - 1] == t[j - 1]:
+            dp[i][j] = dp[i - 1][j - 1] + 1
+        else:
+            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+print(dp[m][n])
+
+# Rhea Pandey’s teacher has asked her to prepare for a lesson on seasons. When her teacher mentions a month,
+# Rhea needs to identify the corresponding season. Your task is to write a program that takes an input month (as a number from 1 to 12) and 
+# outputs the season it belongs to: - **Spring** – March (3) to May (5) - **Summer** – June (6) to August (8) - **Autumn** – September (9) to November (11)
+# - **Winter** – December (12) to February (2) If the input month is not in the range of 1 to 12, print "Invalid month".
+
+month = int(input())
+
+if month >= 3 and month <= 5:
+    print("Season:Spring")
+elif month >= 6 and month <= 8:
+    print("Season:Summer")
+elif month >= 9 and month <= 11:
+    print("SeasonAutumn")
+elif month == 12 or month == 1 or month == 2:
+    print("Winter")
+else:
+    print("Invalid month")
+
+# A Discrete Mathematics professor will cancel class if fewer than a threshold number of students are on time. 
+# Given a list of student arrival times, determine if the class will be cancelled. 
+# Non-positive arrival times represent students who arrived early or on time, while positive times indicate lateness.
+
+n,k = map(int,input().split())
+arr = list(map(int,input().split()))
+
+count = 0
+
+for time in arr:
+    if time <= 0:
+        count += 1
+
+if count < k:
+    print("YES")
+else:
+    print("NO")
 
 
-# Input string
-s = input()
-
-# Find length of string
-length = len(s)
-
-# Output result
-print(length)
 
 
-s = input()
 
-# Print each character in a new line
-for ch in s:
-    print(ch)
+
 
 
 

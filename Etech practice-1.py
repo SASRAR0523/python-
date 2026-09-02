@@ -941,6 +941,81 @@ if count < k:
 else:
     print("NO")
 
+#You are given an array A of size N. An equilibrium point is an index in A such that the sum of elements to 
+#the left of that index is equal to the sum of elements to the right of that index. Find the total number of equilibrium points in A.
+
+n = int(input())
+a = list(map(int, input().split()))
+
+total_sum = sum(a)
+left_sum = 0
+count = 0
+
+for i in range(n):
+    right_sum = total_sum - left_sum - a[i]
+
+    if left_sum == right_sum:
+        count += 1
+
+    left_sum += a[i]
+
+print(count)
+
+#Little Bobby loves chocolate and can exchange wrappers for free chocolates in a promotional offer.
+#Given the amount of money, the cost of each chocolate, and the number of wrappers needed to exchange 
+#for a free chocolate, determine how many chocolates Bobby can eat.
+
+n, c, m = map(int, input().split())
+
+chocolates = n // c
+wrappers = chocolates
+
+while wrappers >= m:
+    free = wrappers // m
+    chocolates += free
+    wrappers = (wrappers % m) + free
+
+print(chocolates)
+
+#You are given an array 'ARR' of integers of length N. Find the first missing positive integer in linear time and constant space. 
+#In other words, find the lowest positive integer that does not exist in the array. The array can contain negative numbers as well.
+
+import sys
+
+def first_missing_positive(arr):
+    n = len(arr)
+    for i in range(n):
+        while 1 <= arr[i] <= n and arr[arr[i] - 1] != arr[i]:
+            correct_idx = arr[i] - 1
+            arr[i], arr[correct_idx] = arr[correct_idx], arr[i]
+
+    for i in range(n):
+        if arr[i] != i + 1:
+            return i + 1
+    return n + 1
+
+def solve():
+    data = sys.stdin.read().split()
+    idx = 0
+    t = int(data[idx]); idx += 1
+    results = []
+    for _ in range(t):
+        n = int(data[idx]); idx += 1
+        arr = list(map(int, data[idx:idx + n])); idx += n
+        results.append(str(first_missing_positive(arr)))
+    print('\n'.join(results))
+
+solve()
+
+#
+
+
+
+
+
+
+
+
 
 
 

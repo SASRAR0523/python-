@@ -1007,7 +1007,130 @@ def solve():
 
 solve()
 
-#
+#Jack loves Sundays and wants to count how many Sundays will occur within a given number of days 
+#from the start of the month, based on the starting day of the week.
+
+import sys
+
+# Read all lines, strip whitespace, and ignore empty lines
+lines = [line.strip() for line in sys.stdin if line.strip() != ""]
+
+start_day = lines[0].lower()
+n = int(lines[1])
+
+day_index = {
+    "mon": 0,
+    "tue": 1,
+    "wed": 2,
+    "thu": 3,
+    "fri": 4,
+    "sat": 5,
+    "sun": 6
+}
+
+start_idx = day_index[start_day]
+
+# Find the day number (1-indexed) of the first Sunday
+days_until_sunday = (6 - start_idx) % 7
+first_sunday_day = days_until_sunday + 1
+
+# Count how many Sundays fall within n days
+if n >= first_sunday_day:
+    count = (n - first_sunday_day) // 7 + 1
+else:
+    count = 0
+
+print(count)
+
+#Joseph is learning digital logic and faces a tricky problem: given a positive integer,
+#convert its decimal value to a binary representation, toggle all bits of it including 
+#and after the most significant bit, and then print the positive integer value after toggling.
+
+n = int(input().strip())
+
+# Find number of bits required to represent n in binary
+num_bits = n.bit_length()
+
+# Create a mask of all 1s with the same number of bits
+mask = (1 << num_bits) - 1
+
+# Toggle all bits by XOR-ing with the mask
+result = n ^ mask
+
+print(result)
+
+#A furnishing company is manufacturing a new collection of curtains. 
+#The curtains are of two colors aqua(a) and black (b). The curtains color is represented as a string(str) consisting of a's and b's of length N. 
+#Then, they are packed (substring) into L number of curtains in each box. The box with the maximum number of 'aqua' (a) color curtains is labeled.
+#The task here is to find the number of 'aqua' color curtains in the labeled box.
+
+# Read input
+curtains = input().strip()
+L = int(input().strip())
+
+n = len(curtains)
+max_count = 0
+
+# Split the string into chunks of size L
+for i in range(0, n, L):
+    chunk = curtains[i:i+L]
+    a_count = chunk.count('a')
+    if a_count > max_count:
+        max_count = a_count
+
+print(max_count)
+
+#Count the number of digits in a positive integer.
+
+num = input().strip()
+
+n = int(num)
+
+digit_count = len(str(abs(n)))
+
+print(digit_count)
+
+#Particulate matters are the biggest contributors to Delhi pollution. 
+#The main reason behind the increase in the concentration of PMs include vehicle emission by applying 
+#Odd Even concept for all types of vehicles. The vehicles with the odd last digit in the registration number 
+#will be allowed on roads on odd dates and those with even last digit will on even dates.
+
+import sys
+
+# Read all tokens from input, ignoring how they're split across lines
+data = sys.stdin.read().split()
+
+# First token is N
+n = int(data[0])
+
+# Next N tokens are the digits
+digits = [int(x) for x in data[1:1+n]]
+
+# Last two tokens are D and X
+d = int(data[1+n])
+x = int(data[2+n])
+
+# Determine which parity is allowed based on the date
+date_is_odd = (d % 2 == 1)
+
+fine_count = 0
+for digit in digits:
+    digit_is_odd = (digit % 2 == 1)
+    if digit_is_odd != date_is_odd:
+        fine_count += 1
+
+total_fine = fine_count * x
+
+print(total_fine)
+
+
+
+
+
+
+
+
+
 
 
 

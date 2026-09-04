@@ -1123,6 +1123,30 @@ total_fine = fine_count * x
 
 print(total_fine)
 
+#Reverse the bits of a given 32-bit unsigned integer.
+
+#Input Format
+#- An integer n (0 ≤ n ≤ 2^32 - 1).
+
+#Output Format
+#- The integer obtained by reversing the bits of n.
+
+n = int(input())
+
+result = 0
+
+for i in range(32):
+    result = (result << 1) | (n & 1)
+    n = n >> 1
+
+# Convert to signed 32-bit integer
+if result >= 2**31:
+    result = result - 2**32
+
+print(result)
+
+
+
 
 
 

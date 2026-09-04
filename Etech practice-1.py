@@ -1145,6 +1145,35 @@ if result >= 2**31:
 
 print(result)
 
+#Karan has two non-negative integers N and X. He now wants to find the number of integers K such that 0≤K<N and (N⊕K)&X=0
+
+#Where:
+
+# ⊕ denotes the bitwise XOR operator
+
+# & denotes the bitwise AND operator
+
+# Help Karan in finding the total required count
+
+T = int(input())
+
+for _ in range(T):
+    N, X = map(int, input().split())
+
+    ans = 0
+    zero_bits = 0
+
+    for bit in range(30):
+        n_bit = (N >> bit) & 1
+        x_bit = (X >> bit) & 1
+
+        if n_bit == 1 and x_bit == 0:
+            ans += 1 << zero_bits
+
+        if x_bit == 0:
+            zero_bits += 1
+
+    print(ans)
 
 
 

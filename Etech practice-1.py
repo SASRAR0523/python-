@@ -1175,9 +1175,84 @@ for _ in range(T):
 
     print(ans)
 
+#An international round table conference will be held in india. 
+#Presidents from all over the world representing their respective countries will be attending the conference. 
+#The task is to find the possible number of ways(P) to make the N members sit around the circular table such that.
 
+#The president and prime minister of India will always sit next to each other.
 
+import math
 
+N = int(input())
+
+P = 2 * math.factorial(N - 1)
+
+print(P)
+
+#Write a program to find the greatest common factor of given 2 integers.
+
+a, b = map(int, input().split())
+
+while b != 0:
+    a, b = b, a % b
+
+print(a)
+
+# Given an integer array/list containing only 0s, 1s, and 2s, sort the array in a single scan. The array should be sorted in non-decreasing order,
+# where all 0s come first, followed by all 1s, and then all 2s.
+
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+
+    c0 = a.count(0)
+    c1 = a.count(1)
+    c2 = a.count(2)
+
+    result = [0] * c0 + [1] * c1 + [2] * c2
+
+    print(*result)
+
+#Given a positive integer N, check whether it is an Armstrong number or not.
+
+n = int(input())
+
+digits = len(str(n))
+total = 0
+temp = n
+
+while temp > 0:
+    digit = temp % 10
+    total += digit ** digits
+    temp //= 10
+
+if total == n:
+    print("Armstrong")
+else:
+    print("Not Armstrong")
+
+# Print all possible subarrays whose sum is equal to K.
+
+n = int(input())
+a = list(map(int, input().split()))
+k = int(input())
+
+found = False
+
+for i in range(n - 1, -1, -1):
+    total = 0
+
+    for j in range(i, n):
+        total += a[j]
+
+        if total == k:
+            print(*a[i:j+1])
+            found = True
+
+if not found:
+    print("None")
 
 
 

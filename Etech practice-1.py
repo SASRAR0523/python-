@@ -1254,6 +1254,56 @@ for i in range(n - 1, -1, -1):
 if not found:
     print("None")
 
+# Write a program that reverses a given integer.
+
+# Input Format
+# A single line containing an integer N (-10^9 <= N <= 10^9), representing the number to be reversed.
+
+# Output Format
+# Print the reversed integer.
+
+n = int(input())
+
+sign = -1 if n < 0 else 1
+n = abs(n)
+
+reverse = 0
+
+while n > 0:
+    digit = n % 10
+    reverse = reverse * 10 + digit
+    n = n // 10
+
+print(sign * reverse)
+
+# You are given three integers (p, q, r). You can perform the following operation any number of times: 
+    1. select two numbers and decrease both by 1, while increasing the third number (not selected) by 
+    2. The task is to determine the minimum number of operations required to make all three integers equal or return -1 if it's not possible.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

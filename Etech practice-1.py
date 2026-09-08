@@ -1335,6 +1335,64 @@ while count < n:
 
     num += 1
 
+# Andy has N consecutive days available and wants to enjoy the longest possible vacation. However,
+# he has M scheduled obligations on specific days. He is allowed to cancel at most K obligations. 
+# Determine the maximum number of consecutive vacation days Andy can enjoy after canceling at most K obligations.
+
+N = int(input())
+M = int(input())
+K = int(input())
+
+days = []
+
+for _ in range(M):
+    days.append(int(input()))
+
+days = sorted(set(days))
+
+left = 0
+answer = 0
+
+for right in range(len(days)):
+    while right - left + 1 > K:
+        left += 1
+
+    if left == 0:
+        start = 1
+    else:
+        start = days[left - 1] + 1
+
+    if right == len(days) - 1:
+        end = N
+    else:
+        end = days[right + 1] - 1
+
+    answer = max(answer, end - start + 1)
+
+print(answer)
+
+# This is a basic implementation and counting problem. The main idea is to traverse through all the given values 
+# and use the modulo operator (%) to check whether each value is divisible by K. The coordinates are part of the input 
+# but are not relevant to the calculation, so they can simply be read and ignored. For every value v, 
+# if v % K == 0, increment a counter. Finally, print the counter as the number of lucky paths.
+
+N = int(input())
+K = int(input())
+
+# Read coordinates
+for _ in range(N):
+    x, y = map(int, input().split())
+
+count = 0
+
+# Read values and check divisibility
+for _ in range(N):
+    v = int(input())
+
+    if v % K == 0:
+        count += 1
+
+print(count)
 
 
 

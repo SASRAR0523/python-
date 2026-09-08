@@ -1280,22 +1280,60 @@ print(sign * reverse)
     1. select two numbers and decrease both by 1, while increasing the third number (not selected) by 
     2. The task is to determine the minimum number of operations required to make all three integers equal or return -1 if it's not possible.
 
+p, q, r = map(int, input().split())
 
+total = p + q + r
 
+# Final equal value must be an integer
+if total % 3 != 0:
+    print(-1)
+else:
+    x = total // 3
 
+    # All three numbers must have the same remainder modulo 3
+    if p % 3 != q % 3 or q % 3 != r % 3:
+        print(-1)
+    else:
+        k = 0
 
+        # Find minimum operations
+        while True:
+            a = x - p + k
+            b = x - q + k
+            c = x - r + k
 
+            if a >= 0 and b >= 0 and c >= 0:
+                if a % 3 == 0 and b % 3 == 0 and c % 3 == 0:
+                    if a <= 3 * k and b <= 3 * k and c <= 3 * k:
+                        break
 
+            k += 1
 
+        print(k)
 
+# Given two positive integers N and M, print the first N prime numbers greater than M.
 
+n, m = map(int, input().split())
 
+count = 0
+num = m + 1
 
+while count < n:
+    flag = True
 
+    if num < 2:
+        flag = False
+    else:
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                flag = False
+                break
 
+    if flag:
+        print(num, end=" ")
+        count += 1
 
-
-
+    num += 1
 
 
 

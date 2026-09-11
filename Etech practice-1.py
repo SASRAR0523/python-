@@ -1394,6 +1394,63 @@ for _ in range(N):
 
 print(count)
 
+# Write a program to swap two given integers without using a temporary variable. 
+# The goal is to swap the values of the two variables using arithmetic operations. 
+# The solution should not utilize any additional storage for swapping the values.
+
+a, b = map(int, input().split())
+
+a = a + b
+b = a - b
+a = a - b
+
+print(a, b)
+
+# Input Format
+# The input consists of two integers: N (positive integer) and R (non-negative integer).
+
+# Output Format
+# Print the single-digit result obtained after R iterations of summing the digits of N.
+
+n = int(input())
+r = int(input())
+
+if r == 0:
+    print(0)
+else:
+    for _ in range(r):
+        n = sum(map(int, str(n)))
+
+        if n < 10:
+            break
+
+    print(n)
+
+# Determine whether there exists a pair of distinct elements in the array whose sum is equal to X.
+# If such a pair exists, print 1. Otherwise, print 0.
+
+n = int(input())
+
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
+
+x = int(input())
+
+seen = set()
+
+for num in arr:
+    if x - num in seen:
+        print(1)
+        break
+    seen.add(num)
+else:
+    print(0)
+
+
+
+
+
 
 
 

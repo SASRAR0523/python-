@@ -1447,9 +1447,47 @@ for num in arr:
 else:
     print(0)
 
+# Print all prime numbers between n1 and n2.
+
+n1, n2 = map(int, input().split())
+
+for n in range(n1, n2 + 1):
+    prime = True
+
+    for i in range(2, n):
+        if n % i == 0:
+            prime = False
+            break
 
 
+    if prime:
+        print(n, end=" ")
 
+# Alex wants to create all possible integer arrays of length K. Each element in the array must be an integer between 1 and N (inclusive).
+# An array is considered valid if every adjacent pair of elements satisfies the condition that the next element is divisible by the previous element.
+# In other words, for every valid index i, a[i + 1] % a[i] == 0. Determine the total number of valid arrays that can be formed.
+# Since the answer can be very large, print the result modulo 10000.
+
+N = int(input())
+K = int(input())
+
+MOD = 10000
+
+if K == 1:
+    print(N % MOD)
+else:
+    dp = [1] * (N + 1)
+
+    for _ in range(K - 1):
+        new = [0] * (N + 1)
+
+        for x in range(1, N + 1):
+            for y in range(x, N + 1, x):
+                new[y] = (new[y] + dp[x]) % MOD
+
+        dp = new
+
+    print(sum(dp) % MOD)
 
 
 

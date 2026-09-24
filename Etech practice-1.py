@@ -1489,9 +1489,37 @@ else:
 
     print(sum(dp) % MOD)
 
+# Convert a given decimal number to its octal representation. The input will be a positive integer in decimal format,
+# and the task is to print its equivalent in octal format. Octal numbers use base-8, which means they use digits from 0 to 7.
 
+n = int(input())
 
+octal = ""
 
+while n > 0:
+    octal = str(n % 8) + octal
+    n //= 8
+
+print(octal)
+
+# Convert a given decimal number to its hexadecimal representation. The input will be a positive integer in decimal format, 
+# and the task is to print its equivalent in hexadecimal format. Hexadecimal numbers use base-16, which means they use digits from 0 to 9 and letters from A to F.
+
+n = int(input())
+
+hexadecimal = ""
+
+while n > 0:
+    r = n % 16
+
+    if r < 10:
+        hexadecimal = str(r) + hexadecimal
+    else:
+        hexadecimal = chr(55 + r) + hexadecimal
+
+    n //= 16
+
+print(hexadecimal)
 
 
 

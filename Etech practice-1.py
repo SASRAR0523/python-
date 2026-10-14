@@ -1521,6 +1521,16 @@ while n > 0:
 
 print(hexadecimal)
 
+# Given an integer $n$, count the number of set bits (1s) in its binary representation. A set bit is any 1 in the binary form of a number.
+
+n = int(input())
+count = 0
+
+while n > 0:
+    count += n & 1  
+    n >>= 1         
+
+print(count)
 
 
 

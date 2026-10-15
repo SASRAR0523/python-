@@ -1532,6 +1532,36 @@ while n > 0:
 
 print(count)
 
+def solve():
+    try:
+        n = int(input().strip())
+        a = list(map(int, input().split()))
+        k = int(input().strip())
+    except (EOFError, ValueError):
+        return
+
+    min_value = float('inf')
+    min_sum = float('inf')
+    ans = None
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            total = a[i] + a[j]
+            rem = total // k  # Integer division result as per the description
+            
+            if rem < min_value or (rem == min_value and total < min_sum):
+                min_value = rem
+                min_sum = total
+                ans = (a[i], a[j])
+
+    if ans is not None:
+        print(f"{ans[0]} {ans[1]}")
+    else:
+        print("-1")
+
+if __name__ == '__main__':
+    solve()
+
 
 
 

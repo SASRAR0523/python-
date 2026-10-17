@@ -1576,7 +1576,17 @@ for num in numbers:
 print("Numbers:", numbers)
 print("Largest number:", largest)
 
+# Print numbers from N to 1 which are multiples of both 3 and 5.
 
+n = int(input())
+
+# Find the largest multiple of 15 that is <= n
+start = n - (n % 15)
+
+if start < 15:
+    print(-1)
+else:
+    print(*range(start, 0, -15))
 
 
 

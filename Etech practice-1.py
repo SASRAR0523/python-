@@ -1588,8 +1588,25 @@ if start < 15:
 else:
     print(*range(start, 0, -15))
 
+# Given a positive integer N, print the Fibonacci series of N terms.
 
+n = int(input())
 
+a, b = 0, 1
+
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+# Given an array of integers, print the missing number in the array.
+
+n = int(input())
+arr = list(map(int, input().split()))
+
+total = (n + 1) * (n + 2) // 2
+missing = total - sum(arr)
+
+print(missing)
 
 
 
